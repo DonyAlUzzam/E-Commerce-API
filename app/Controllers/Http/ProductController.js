@@ -5,8 +5,9 @@ const Product = use('App/Models/Product')
 class ProductController {
 
     async index ({response}){
-        let products = await Product.all()
-        return response.json(products)
+        // let products = await Product.all()
+        const products = await Product.query().with('order').fetch();
+                return response.json(products)
     }
 
     async store({request, response}){
