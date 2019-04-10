@@ -17,11 +17,9 @@
 const Route = use('Route')
 
 Route.group(() => {
-  Route.get('products', 'ProductController.index')
-  Route.get('products/:id', 'ProductController.show')
-  Route.post('products', 'ProductController.store')
-  Route.patch('products/:id', 'ProductController.update')
-  Route.delete('products/:id', 'ProductController.delete')
-  // Route.post('orders', 'ProductController.store')
+Route.resource('products', 'ProductController')
 
+  Route.post("users/register", "AuthController.register");
+  Route.post("users/login", "AuthController.login");
+  Route.post("users/refresh", "AuthController.generateRefreshToken");
 }).prefix('api/v1')
