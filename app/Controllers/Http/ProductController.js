@@ -11,7 +11,7 @@ class ProductController {
     }
 
     async store({request, response}){
-        const productInfo = request.only(['id', 'name', 'image', 'price', 'desc'])
+        const productInfo = request.only(['id', 'name', 'image', 'price', 'details'])
         
         const product = new Product()
         
@@ -19,7 +19,7 @@ class ProductController {
         product.name = productInfo.name
         product.image = productInfo.image
         product.price = productInfo.price     
-        product.desc = productInfo.desc  
+        product.details = productInfo.details  
         await product.save()
         
         return response.status(201).json(product)
@@ -40,14 +40,14 @@ class ProductController {
         product.name = request.input("name")
         product.image = request.input("image")
         product.price = request.input("price")
-        product.desc = request.input("desc")
+        product.details = request.input("details")
         // product.merge(request.all());
 
         await product.save()
         return response.json(product)
     }
 
-    async delete ({params, response}){
+    async destroy ({params, response}){
         const product = await Product.find(params.id)
         if(!product){
             return response.status(404).json({data: 'Resource not found'})

@@ -18,8 +18,10 @@ const Route = use('Route')
 
 Route.group(() => {
 Route.resource('products', 'ProductController')
+Route.resource('orders', 'OrderController')
 
   Route.post("users/register", "AuthController.register");
   Route.post("users/login", "AuthController.login");
   Route.post("users/refresh", "AuthController.generateRefreshToken");
 }).prefix('api/v1')
+
