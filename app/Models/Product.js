@@ -10,8 +10,8 @@ class Product extends Model {
     static get primaryKey(){
         return 'id'
     }
-    order(){
-        return this.hasMany('App/Models/Order')
+    cart(){
+        return this.hasMany('App/Models/Cart')
     }
 }
 

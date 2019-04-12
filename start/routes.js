@@ -19,6 +19,7 @@ const Route = use('Route')
 Route.group(() => {
 Route.resource('products', 'ProductController')
 Route.resource('orders', 'OrderController')
+Route.resource('carts', 'CartController')
 
   Route.post("users/register", "AuthController.register");
   Route.post("users/login", "AuthController.login");

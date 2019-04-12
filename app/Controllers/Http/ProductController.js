@@ -6,7 +6,7 @@ class ProductController {
 
     async index ({response}){
         // let products = await Product.all()
-        const products = await Product.query().with('order').fetch();
+        const products = await Product.query().with('cart').fetch();
                 return response.json(products)
     }
 

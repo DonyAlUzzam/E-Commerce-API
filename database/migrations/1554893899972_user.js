@@ -11,6 +11,9 @@ class UserSchema extends Schema {
       table.string('password', 60).notNullable()
       table.timestamps()
     })
+    this.alter("tokens", table=>{
+      table.foreign("user_id").references('id').inTable('users')
+    })
   }
 
   down () {
