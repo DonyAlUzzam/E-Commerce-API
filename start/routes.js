@@ -23,6 +23,7 @@ Route.resource('carts', 'CartController')
 
   Route.post("users/register", "AuthController.register");
   Route.post("users/login", "AuthController.login");
+  Route.get('users/data', 'AuthController.getData').middleware(['auth'])
   Route.post("users/refresh", "AuthController.generateRefreshToken");
 }).prefix('api/v1')
 

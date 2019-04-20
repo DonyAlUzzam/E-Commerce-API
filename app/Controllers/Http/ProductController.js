@@ -13,14 +13,18 @@ class ProductController {
     async store({request, response}){
         const productInfo = request.only(['id', 'name', 'image', 'price', 'details'])
         
-        const product = new Product()
+        // const product = new Product()
         
-        product.id = productInfo.id
-        product.name = productInfo.name
-        product.image = productInfo.image
-        product.price = productInfo.price     
-        product.details = productInfo.details  
-        await product.save()
+        const data =  request.only(['id', 'name', 'image', 'price', 'details'])
+        const product = await Product.create(data)
+
+
+        // product.id = productInfo.id
+        // product.name = productInfo.name
+        // product.image = productInfo.image
+        // product.price = productInfo.price     
+        // product.details = productInfo.details  
+        // await product.save()
         
         return response.status(201).json(product)
     }

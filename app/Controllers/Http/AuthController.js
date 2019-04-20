@@ -88,7 +88,7 @@ class AuthController {
         return response.send({ status: 1, access_token});
     }
 
-    async getProfile({ response, auth}){
+    async getData({ response, auth}){
         return response.send({ status: 1, user: auth.current.user });
     }
 }
